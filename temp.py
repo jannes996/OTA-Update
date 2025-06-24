@@ -10,15 +10,16 @@ from AHT10 import AHT10
 from ota import OTAUpdater
 from WIFI_CONFIG import SSID, PASSWORD
 
-firmware_url = "https://raw.githubusercontent.com/<username>/<repo_name>/<branch_name>"
+firmware_url = "https://raw.githubusercontent.com/jannes996/OTA-Update/main"
+
+ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "test.py")
+ota_updater.download_and_install_update_if_available()
 
 # I2C und Sensor initialisieren
 i2c = SoftI2C(scl=Pin(1), sda=Pin(2))
 sensor = AHT10(i2c)
 
 # WLAN und MQTT-Daten
-SSID = "BZTG-IoT"
-PASSWORD = "WerderBremen24"
 
 def connect_wifi():
     wlan = network.WLAN(network.STA_IF)

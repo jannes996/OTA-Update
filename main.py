@@ -10,10 +10,9 @@ from AHT10 import AHT10
 from ota import OTAUpdater
 from WIFI_CONFIG import SSID, PASSWORD
 
-firmware_url = "https://raw.githubusercontent.com/jannes996/OTA-Update/"
+firmware_url = "https://raw.githubusercontent.com/jannes996/OTA-Update/refs/heads/"
 
-ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "test.py")
-ota_updater.download_and_install_update_if_available()
+ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 
 # I2C und Sensor initialisieren
 i2c = SoftI2C(scl=Pin(1), sda=Pin(2))
@@ -62,5 +61,6 @@ def send_data():
 
 while True:
     send_data()
-    time.sleep(5)
+    ota_updater.download_and_install_update_if_available()
+    time.sleep(60)
     #machine.deepsleep(60000)

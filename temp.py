@@ -10,7 +10,7 @@ from AHT10 import AHT10
 from ota import OTAUpdater
 from WIFI_CONFIG import SSID, PASSWORD
 
-firmware_url = "https://raw.githubusercontent.com/jannes996/OTA-Update/main"
+firmware_url = "https://raw.githubusercontent.com/jannes996/OTA-Update/"
 
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "test.py")
 ota_updater.download_and_install_update_if_available()

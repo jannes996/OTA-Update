@@ -62,4 +62,5 @@ def send_data():
 
 while True:
     send_data()
-    machine.deepsleep(60000)
+    time.sleep(5)
+    #machine.deepsleep(60000)
